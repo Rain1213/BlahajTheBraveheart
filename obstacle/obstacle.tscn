@@ -1,0 +1,80 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://art/obstacles/glass/idle_1.png" type="Texture" id=1]
+[ext_resource path="res://art/obstacles/barrel/idle_1.png" type="Texture" id=2]
+[ext_resource path="res://art/obstacles/mine_long/collide_11.png" type="Texture" id=3]
+[ext_resource path="res://art/obstacles/mine_long/collide_9.png" type="Texture" id=4]
+[ext_resource path="res://art/obstacles/mine_long/collide_7.png" type="Texture" id=5]
+[ext_resource path="res://obstacle/obstacle.gd" type="Script" id=6]
+[ext_resource path="res://art/obstacles/mine_long/collide_1.png" type="Texture" id=7]
+[ext_resource path="res://art/obstacles/mine_long/collide_6.png" type="Texture" id=8]
+[ext_resource path="res://art/obstacles/mine_long/collide_2.png" type="Texture" id=9]
+[ext_resource path="res://art/obstacles/mine_long/collide_4.png" type="Texture" id=10]
+[ext_resource path="res://art/obstacles/mine_long/idle_1.png" type="Texture" id=11]
+[ext_resource path="res://art/obstacles/mine_long/collide_3.png" type="Texture" id=12]
+[ext_resource path="res://art/obstacles/mine_long/collide_5.png" type="Texture" id=13]
+[ext_resource path="res://art/obstacles/mine_long/collide_8.png" type="Texture" id=14]
+[ext_resource path="res://art/obstacles/mine_long/collide_10.png" type="Texture" id=15]
+[ext_resource path="res://art/obstacles/mine_long/collide_12.png" type="Texture" id=16]
+[ext_resource path="res://art/obstacles/wood/idle_1.png" type="Texture" id=17]
+[ext_resource path="res://art/obstacles/net/idle_2.png" type="Texture" id=18]
+[ext_resource path="res://art/obstacles/net/idle_1.png" type="Texture" id=19]
+[ext_resource path="res://art/obstacles/plastic/plastic_1.png" type="Texture" id=20]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "barrel",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 4 ), ExtResource( 15 ), ExtResource( 3 ), ExtResource( 16 ) ],
+"loop": false,
+"name": "mine_explode",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "net",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "mine",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "glass",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "wood",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "plastic",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.7057, 5.04595 )
+
+[node name="obstacle" type="KinematicBody2D"]
+script = ExtResource( 6 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.6, 0.6 )
+frames = SubResource( 1 )
+animation = "plastic"
+playing = true
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( -0.617271, -0.564442 )
+shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://art/enemy/angler/idle/2.png" type="Texture" id=1]
+[ext_resource path="res://art/enemy/angler/idle/1.png" type="Texture" id=2]
+[ext_resource path="res://art/enemy/angler/idle/3.png" type="Texture" id=3]
+
+[sub_resource type="AnimatedTexture" id=1]
+flags = 1
+frames = 3
+frame_0/texture = ExtResource( 2 )
+frame_1/texture = ExtResource( 1 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 3 )
+frame_2/delay_sec = 0.0
+
+[node name="particle" type="Sprite"]
+texture = SubResource( 1 )

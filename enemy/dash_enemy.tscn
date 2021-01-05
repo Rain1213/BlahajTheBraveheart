@@ -1,0 +1,148 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://enemy/dash_enemy.gd" type="Script" id=1]
+[ext_resource path="res://art/enemy/orca/move/5.png" type="Texture" id=2]
+[ext_resource path="res://art/enemy/orca/move/10.png" type="Texture" id=3]
+[ext_resource path="res://art/enemy/orca/move/7.png" type="Texture" id=4]
+[ext_resource path="res://art/enemy/orca/move/9.png" type="Texture" id=5]
+[ext_resource path="res://art/enemy/orca/move/6.png" type="Texture" id=6]
+[ext_resource path="res://art/enemy/orca/move/8.png" type="Texture" id=7]
+[ext_resource path="res://art/enemy/orca/move/4.png" type="Texture" id=8]
+[ext_resource path="res://art/enemy/orca/idle/2.png" type="Texture" id=9]
+[ext_resource path="res://art/enemy/orca/idle/4.png" type="Texture" id=10]
+[ext_resource path="res://art/enemy/orca/idle/7.png" type="Texture" id=11]
+[ext_resource path="res://art/enemy/orca/idle/5.png" type="Texture" id=12]
+[ext_resource path="res://art/enemy/orca/idle/8.png" type="Texture" id=13]
+[ext_resource path="res://art/enemy/orca/move/1.png" type="Texture" id=14]
+[ext_resource path="res://art/enemy/orca/idle/10.png" type="Texture" id=15]
+[ext_resource path="res://art/enemy/orca/idle/3.png" type="Texture" id=16]
+[ext_resource path="res://art/enemy/orca/idle/6.png" type="Texture" id=17]
+[ext_resource path="res://art/enemy/orca/idle/9.png" type="Texture" id=18]
+[ext_resource path="res://art/enemy/orca/move/2.png" type="Texture" id=19]
+[ext_resource path="res://art/enemy/orca/move/3.png" type="Texture" id=20]
+[ext_resource path="res://art/enemy/orca/death/5.png" type="Texture" id=21]
+[ext_resource path="res://art/enemy/orca/death/3.png" type="Texture" id=22]
+[ext_resource path="res://art/enemy/lamprey/idle/1.png" type="Texture" id=23]
+[ext_resource path="res://art/enemy/lamprey/idle/2.png" type="Texture" id=24]
+[ext_resource path="res://art/enemy/lamprey/idle/3.png" type="Texture" id=25]
+[ext_resource path="res://art/enemy/lamprey/idle/4.png" type="Texture" id=26]
+[ext_resource path="res://art/enemy/orca/death/4.png" type="Texture" id=27]
+[ext_resource path="res://art/enemy/orca/idle/1.png" type="Texture" id=28]
+[ext_resource path="res://art/enemy/orca/death/2.png" type="Texture" id=29]
+[ext_resource path="res://art/enemy/orca/death/1.png" type="Texture" id=30]
+[ext_resource path="res://art/enemy/lamprey/death/1.png" type="Texture" id=31]
+[ext_resource path="res://art/enemy/lamprey/death/2.png" type="Texture" id=32]
+[ext_resource path="res://art/enemy/lamprey/death/4.png" type="Texture" id=33]
+[ext_resource path="res://art/enemy/lamprey/death/3.png" type="Texture" id=34]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 27 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "orca_death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "lamprey_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "orca_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 33 ) ],
+"loop": false,
+"name": "lamprey_death",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "orca_move",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "lamprey_move",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 60.0692, 7.80615 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "damage"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 10.4152
+
+[node name="enemy" type="KinematicBody2D" groups=[
+"enemy",
+]]
+script = ExtResource( 1 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "orca_death"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0349655, -3.8374 )
+shape = SubResource( 2 )
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+anims/damage = SubResource( 3 )
+anims/death = SubResource( 4 )
+
+[node name="melee_weapon" type="Area2D" parent="."]
+position = Vector2( 49.6907, -0.473183 )
+
+[node name="collision" type="CollisionShape2D" parent="melee_weapon"]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="cooldown_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="cc_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="dash_timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+[connection signal="animation_finished" from="sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="body_entered" from="melee_weapon" to="." method="_on_melee_weapon_body_entered"]
+[connection signal="timeout" from="cooldown_timer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="cc_timer" to="." method="_on_cc_timer_timeout"]
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]

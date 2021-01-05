@@ -1,0 +1,126 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://character_selection_menu/character_selection_menu.gd" type="Script" id=1]
+[ext_resource path="res://art/character_selection_menu/male_button.png" type="Texture" id=2]
+[ext_resource path="res://art/character_selection_menu/female_button.png" type="Texture" id=3]
+[ext_resource path="res://font/ChelseaMarket-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://art/character_selection_menu/blahaj.png" type="Texture" id=5]
+[ext_resource path="res://art/character_selection_menu/genomblot.png" type="Texture" id=6]
+[ext_resource path="res://art/character_selection_menu/female_button_hover.png" type="Texture" id=7]
+[ext_resource path="res://art/character_selection_menu/male_button_clicked.png" type="Texture" id=8]
+[ext_resource path="res://art/character_selection_menu/male_button_hover.png" type="Texture" id=9]
+[ext_resource path="res://art/character_selection_menu/female_button_clicked.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 4 )
+
+[node name="character_selection_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 75.0
+margin_right = -99.9999
+margin_bottom = -75.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 25.0
+margin_top = 25.0
+margin_right = -25.0
+margin_bottom = -25.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="male_select" type="TextureButton" parent="Panel/HBoxContainer"]
+margin_right = 385.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+
+[node name="img" type="TextureRect" parent="Panel/HBoxContainer/male_select"]
+margin_left = 100.0
+margin_top = 35.0
+margin_right = 280.0
+margin_bottom = 135.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/male_select"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 100.0
+margin_right = -20.0
+custom_fonts/font = SubResource( 1 )
+text = "Blahaj
+\"Live life large.\"
+Blahaj does more damage and is faster. However, he has less health."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="female_select" type="TextureButton" parent="Panel/HBoxContainer"]
+margin_left = 395.0
+margin_right = 780.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 7 )
+
+[node name="img" type="TextureRect" parent="Panel/HBoxContainer/female_select"]
+margin_left = 115.0
+margin_top = 35.0
+margin_right = 295.0
+margin_bottom = 135.0
+texture = ExtResource( 6 )
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/female_select"]
+margin_left = 20.0
+margin_top = 169.64
+margin_right = 362.0
+margin_bottom = 341.64
+custom_fonts/font = SubResource( 2 )
+text = "Genomblot
+\"Ayaya\"
+Genomblot can absorb more blows, but is slower, and does lesser damage."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/HBoxContainer/male_select" to="." method="_on_male_select_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/female_select" to="." method="_on_female_select_pressed"]

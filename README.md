@@ -5,3 +5,7 @@
 
 Please do check out: https://devpost.com/software/blahaj-the-braveheart
 
+<img align="center" alt="output1" width="30%" src="https://github.com/Rain1213/CountriesApp/blob/master/screenshots/btb1.JPG?raw=true" />
+<img align="center" alt="output1" width="30%" src="https://github.com/Rain1213/CountriesApp/blob/master/screenshots/btb2.JPG?raw=true" />
+<img align="center" alt="output1" width="30%" src="https://github.com/Rain1213/CountriesApp/blob/master/screenshots/btb3.JPG?raw=true" />
+<img align="center" alt="output1" width="30%" src="https://github.com/Rain1213/CountriesApp/blob/master/screenshots/btb4.JPG?raw=true" />
